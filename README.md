@@ -10,10 +10,22 @@ First, you need to register your app in the [Lyft Developer Portal](https://www.
 
 Next, copy `.env.sample` to `.env` and place in the root of your project, updating it with your information. Alternatively, add environment variables to your startup script. This project uses [.env](https://www.npmjs.com/package/dotenv) to manage these variables.
 
+#### ./.env
+
+```sh
+CONFIG_LYFT_API_URI=https://api.lyft.com
+CONFIG_LYFT_WWW_URI=https://www.lyft.com
+CONFIG_LYFT_CLIENT_ID=YOUR_ID
+CONFIG_LYFT_CLIENT_SECRET=YOUR_SECRET
+CONFIG_PORT=8080
+CONFIG_SESSION_SECRET=secret
+CONFIG_USE_SANDBOX=true
+```
+
 After registering your application, install this module in your Node.js project:
 
 ```sh
-npm i node-lyft -S
+$ npm i node-lyft -S
 ```
 
 ### Initialization
@@ -21,8 +33,7 @@ npm i node-lyft -S
 In order to use this module, you have to import it in your application first.
 
 ```es6
-import CONFIG from './config';
-import Lyft from 'node-lyft';
+var Lyft = require('node-lyft');
 lyft = new Lyft();
 ```
 
@@ -53,17 +64,17 @@ module.exports = {
 #### Building
 
 ```sh
-gulp build
+$ gulp build
 ```
 
 #### Tests
 
 ```sh
-gulp test
+$ gulp test
 ```
 
 #### Build, Test, and Watch for changes:
 
 ```sh
-gulp
+$ gulp
 ```
