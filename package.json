@@ -1,0 +1,62 @@
+{
+  "name": "node-lyft",
+  "version": "0.0.1",
+  "description": "A Node.js wrapper for the Lyft API",
+  "main": "index.js",
+  "scripts": {
+    "prepublish": "npm run compile",
+    "compile": "gulp build",
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/andrewmartin/node-lyft.git"
+  },
+  "author": {
+    "name": "Andrew Martin",
+    "email": "hello@andrewmart.in",
+    "url": "http://andrewmart.in"
+  },
+  "contributors": [],
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^2.0.0",
+    "oauth": "^0.9.14",
+    "request": "^2.78.0",
+    "rsvp": "^3.3.3"
+  },
+  "devDependencies": {
+    "babel-core": "^6.18.2",
+    "babel-polyfill": "^6.16.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "chai": "^3.5.0",
+    "codeclimate-test-reporter": "^0.4.0",
+    "del": "^2.2.2",
+    "eslint": "^3.10.0",
+    "eslint-plugin-babel": "^3.3.0",
+    "eslint-plugin-chai": "0.0.1",
+    "eslint-plugin-mocha": "^4.7.0",
+    "eslint-plugin-sort-class-members": "^1.1.1",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-eslint": "^3.0.1",
+    "gulp-istanbul": "^1.1.1",
+    "gulp-load-plugins": "^1.4.0",
+    "gulp-mocha": "^3.0.1",
+    "gulp-notify": "^2.2.0",
+    "gulp-sourcemaps": "^2.2.0",
+    "gulp-util": "^3.0.7",
+    "gulp-watch": "^4.3.10",
+    "isparta": "^4.0.0",
+    "istanbul": "^0.4.3",
+    "mocha": "^3.1.2",
+    "nock": "^9.0.2",
+    "path": "^0.12.7",
+    "run-sequence": "^1.2.2",
+    "sinon": "^1.17.3",
+    "sinon-chai": "^2.8.0",
+    "superagent": "^2.3.0"
+  }
+}

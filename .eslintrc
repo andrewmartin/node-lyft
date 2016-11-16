@@ -1,0 +1,42 @@
+{
+  "extends": ["eslint:recommended"],
+  "plugins": [
+    "babel",
+    "mocha",
+    "chai",
+    "sort-class-members"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "globals": {
+    "before": true,
+    "after": true,
+    "require": true,
+    "describe": true,
+    "it": true,
+    "exports": true,
+    "console": true,
+    "module": true
+  },
+  "rules": {
+    "semi": 2,
+    "keyword-spacing": 2,
+    "sort-class-members/sort-class-members": [2, {
+    "order": [
+      "[static-properties]",
+      "[static-methods]",
+      "[properties]",
+      "[conventional-private-properties]",
+      "constructor",
+      "[methods]",
+      "[conventional-private-methods]"
+    ],
+      "accessorPairPositioning": "getThenSet"
+    }]
+  }
+}
