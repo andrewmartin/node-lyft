@@ -23,7 +23,31 @@ In order to use this module, you have to import it in your application first.
 ```es6
 import CONFIG from './config';
 import Lyft from 'node-lyft';
-myApp.lyft = new Lyft(CONFIG);
+lyft = new Lyft();
+```
+
+It's recommended to substantiate without using the `var` keyword to make your instance available within imported files:
+
+#### ./app.js
+
+```js
+lyft = new Lyft();
+
+var apiLyftController   = require('./controllers/api/lyft');
+app.post('/api/lyft/ridetypes', apiLyftController.getRideTypes);
+```
+
+#### ./controllers/api/lyft/index.js
+
+```js
+module.exports = {
+  getRideTypes: function(req, res, next) {
+    lyft.rideTypes.get(req.body.lat, req.body.lng).then(function(data) {
+      res.json(data)
+      next();
+    });
+  }
+}
 ```
 
 #### Building
