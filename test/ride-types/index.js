@@ -56,5 +56,9 @@ describe('Ride Types', () => {
 
   });
 
+  after(() => {
+    nock.cleanAll();
+  });
+
 
 });
