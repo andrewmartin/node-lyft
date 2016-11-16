@@ -48,13 +48,22 @@ var apiLyftController   = require('./controllers/api/lyft');
 app.post('/api/lyft/ridetypes', apiLyftController.getRideTypes);
 ```
 
+### Usage
+
+This project uses [rsvp.js](https://github.com/tildeio/rsvp.js/) promises to facilitate calls; all calls are `Promises`. In your controllers, chain onto these promises like so:
+
 #### ./controllers/api/lyft/index.js
 
 ```js
 module.exports = {
   getRideTypes: function(req, res, next) {
-    lyft.rideTypes.get(req.body.lat, req.body.lng).then(function(data) {
-      res.json(data)
+    lyft.rideTypes.get(req.body.lat, req.body.lng)
+    .then(function(data) {
+      res.json(data);
+      next();
+    })
+    .catch(function(err) {
+      res.json(err);
       next();
     });
   }
