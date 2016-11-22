@@ -1,6 +1,7 @@
 /**
  *  Lyft API: ETA
  *  @link https://developer.lyft.com/docs/availability-etas
+ *  @keys lat, lng, ride_type
  */
 
 'use strict';
@@ -18,19 +19,15 @@ const {
 } = CONSTANTS;
 
 class ETA extends BaseClass {
-  get(lat, lng, ride_type) {
-    if (!lat || !lng) {
+  get(qs) {
+    if (!qs || !qs.lat || !qs.lng) {
       throw new Error('must provide a latitude and a longitude');
     }
     const requestOptions = {
       method: 'GET',
       json: true,
       uri: LYFT_API_URI + ETA_PATH,
-      qs: {
-        lat,
-        lng,
-        ride_type
-      }
+      qs
     };
     return this.authenticatedRequest(requestOptions);
   }
