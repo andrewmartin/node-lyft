@@ -1,6 +1,6 @@
 /**
- *  Lyft API: Ride Types
- *  @link https://developer.lyft.com/docs/availability-ride-types
+ *  Lyft API: ETA
+ *  @link https://developer.lyft.com/docs/availability-etas
  */
 
 'use strict';
@@ -14,10 +14,10 @@ const {
 } = CONFIG;
 
 const {
-  RIDE_TYPES_PATH
+  ETA_PATH
 } = CONSTANTS;
 
-class RideTypes extends BaseClass {
+class ETA extends BaseClass {
   get(lat, lng, ride_type) {
     if (!lat || !lng) {
       throw new Error('must provide a latitude and a longitude');
@@ -25,7 +25,7 @@ class RideTypes extends BaseClass {
     const requestOptions = {
       method: 'GET',
       json: true,
-      uri: LYFT_API_URI + RIDE_TYPES_PATH,
+      uri: LYFT_API_URI + ETA_PATH,
       qs: {
         lat,
         lng,
@@ -36,4 +36,4 @@ class RideTypes extends BaseClass {
   }
 }
 
-module.exports = RideTypes;
+module.exports = ETA;

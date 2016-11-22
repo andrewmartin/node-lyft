@@ -1,6 +1,6 @@
 /**
- *  Lyft API: Ride Types
- *  @link https://developer.lyft.com/docs/availability-ride-types
+ *  Lyft API: Nearby Drivers
+ *  @link https://developer.lyft.com/docs/nearby-drivers
  */
 
 'use strict';
@@ -14,26 +14,25 @@ const {
 } = CONFIG;
 
 const {
-  RIDE_TYPES_PATH
+  NEARBY_DRIVERS_PATH
 } = CONSTANTS;
 
-class RideTypes extends BaseClass {
-  get(lat, lng, ride_type) {
+class NearbyDrivers extends BaseClass {
+  get(lat, lng) {
     if (!lat || !lng) {
       throw new Error('must provide a latitude and a longitude');
     }
     const requestOptions = {
       method: 'GET',
       json: true,
-      uri: LYFT_API_URI + RIDE_TYPES_PATH,
+      uri: LYFT_API_URI + NEARBY_DRIVERS_PATH,
       qs: {
         lat,
-        lng,
-        ride_type
+        lng
       }
     };
     return this.authenticatedRequest(requestOptions);
   }
 }
 
-module.exports = RideTypes;
+module.exports = NearbyDrivers;

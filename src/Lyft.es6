@@ -1,4 +1,7 @@
 import RideTypes from './ride-types';
+import ETA from './eta';
+import Cost from './cost';
+import NearbyDrivers from './nearby-drivers';
 import CONFIG from './config';
 
 class Lyft {
@@ -13,6 +16,9 @@ class Lyft {
 
   addMethods() {
     this.rideTypes = new RideTypes(this);
+    this.eta = new ETA(this);
+    this.cost = new Cost(this);
+    this.nearbyDrivers = new NearbyDrivers(this);
   }
 }
 
