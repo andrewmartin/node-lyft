@@ -3,6 +3,8 @@ Lyft + Node.js
 
 This is a WIP wrapper written in node for the [Lyft](https://www.lyft.com/developers) API. It's meant to be used alongside your existing application to quickly and easily facilitate calls to the API.
 
+For a sample application using this wrapper, check out our [Node Lyft Starter](https://github.com/andrewmartin/node-lyft-starter) project.
+
 Installation
 ------------
 
