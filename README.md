@@ -41,13 +41,42 @@ lyft = new Lyft();
 
 It's recommended to substantiate without using the `var` keyword to make your instance available within imported files:
 
-#### ./app.js
+#### `./app.js:`
 
 ```js
 lyft = new Lyft();
 
 var apiLyftController   = require('./controllers/api/lyft');
 app.post('/api/lyft/ridetypes', apiLyftController.getRideTypes);
+```
+
+#### `./controllers/api/lyft.js:`
+
+```js
+
+const queryObject = (body) => {
+  var qs = {};
+  Object.keys(body).forEach((key) => {
+    qs[key] = body[key]
+  });
+  return qs;
+};
+
+module.exports = {
+  getRideTypes(req, res, next) {
+    var qs = queryObject(req.body);
+
+    // qs = { lat: 37.774929, lng: -122.419416 };
+    lyft.rideTypes.get(qs).then((data) => {
+      res.json(data);
+      next();
+    }).catch((err) => {
+      res.json(err);
+      next();
+    });
+  },
+};
+
 ```
 
 ### Usage
